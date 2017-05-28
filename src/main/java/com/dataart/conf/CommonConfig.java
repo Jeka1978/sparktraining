@@ -6,12 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
 /**
  * Created by Evegeny on 28/05/2017.
  */
 @Configuration
 @ComponentScan
+@PropertySource("classpath:user.properties")
 @ComponentScan(basePackages = "com.dataart.services")
 public class CommonConfig {
 

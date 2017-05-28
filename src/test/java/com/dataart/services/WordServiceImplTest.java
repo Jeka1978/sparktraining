@@ -36,4 +36,24 @@ public class WordServiceImplTest {
         Assert.assertEquals("java",strings.get(0));
     }
 
+    @Test
+    public void testThatYesterdayIsTheMostPopularWordOfBeatles() throws Exception {
+        JavaRDD<String> rdd = sc.textFile("data/songs/beatles/*.txt");
+        List<String> topX = wordService.topX(rdd, 1);
+        Assert.assertEquals("yesterday",topX.get(0));
+
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
