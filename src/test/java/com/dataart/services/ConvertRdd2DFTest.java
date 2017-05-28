@@ -33,7 +33,7 @@ public class ConvertRdd2DFTest {
 
     @Test
     public void test() throws Exception {
-        JavaRDD<String> rdd = sc.textFile("data/taxi/trips.txt");
+        JavaRDD<String> rdd = sc.textFile("data/taxi_order.txt");
 
         JavaRDD<Row> rowJavaRDD = rdd.map(line -> {
             String[] split = line.split(" ");
