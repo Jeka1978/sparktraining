@@ -1,0 +1,21 @@
+### Java template
+*.class
+*.jar
+*.war
+*.ear
+hs_err_pid*
+
+# IntelliJ
+.idea
+*.iws
+/out/
+.idea_modules/
+classes
+
+# Gradle: / Maven
+.gradle
+build/
+target/
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
