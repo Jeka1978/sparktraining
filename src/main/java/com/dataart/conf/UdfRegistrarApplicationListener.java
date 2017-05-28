@@ -1,6 +1,7 @@
 package com.dataart.conf;
 
 import org.apache.spark.sql.SQLContext;
+import org.apache.spark.sql.SparkSession;
 import org.apache.spark.sql.api.java.UDF1;
 import org.apache.spark.sql.types.DataType;
 import org.apache.spark.sql.types.DataTypes;
@@ -24,6 +25,9 @@ public class UdfRegistrarApplicationListener {
     @Autowired
     private SQLContext sqlContext;
 
+    @Autowired
+    private SparkSession sparkSession;
+
     private Map<Class, DataType> types = new HashMap<>();
 
     public UdfRegistrarApplicationListener() {
@@ -40,7 +44,7 @@ public class UdfRegistrarApplicationListener {
         for (UDF1 udf1 : udf1s) {
             Type type = ((ParameterizedType) udf1.getClass().getGenericInterfaces()[0]).getActualTypeArguments()[1];
             DataType dataType = types.get(type);
-            sqlContext.udf().register(udf1.getClass().getName(), udf1, dataType);
+            sparkSession.udf().register(udf1.getClass().getName(), udf1, dataType);
         }
     }
 }

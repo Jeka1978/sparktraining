@@ -3,7 +3,7 @@ package com.dataart.services;
 import com.dataart.conf.CommonConfig;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
-import org.apache.spark.sql.DataFrame;
+import org.apache.spark.sql.Dataset;
 import org.apache.spark.sql.Row;
 import org.apache.spark.sql.RowFactory;
 import org.apache.spark.sql.SQLContext;
@@ -45,7 +45,7 @@ public class ConvertRdd2DFTest {
                 DataTypes.createStructField("city", DataTypes.StringType, false),
                 DataTypes.createStructField("km", DataTypes.IntegerType, false)});
 
-        DataFrame dataFrame = sqlContext.createDataFrame(rowJavaRDD, schema);
+        Dataset<Row> dataFrame = sqlContext.createDataFrame(rowJavaRDD, schema);
 
         dataFrame.show();
 

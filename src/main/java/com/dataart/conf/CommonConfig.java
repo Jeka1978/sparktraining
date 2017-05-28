@@ -3,6 +3,7 @@ package com.dataart.conf;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.sql.SQLContext;
+import org.apache.spark.sql.SparkSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -28,6 +29,11 @@ public class CommonConfig {
     @Bean
     public SQLContext sqlContext(){
         return new SQLContext(sc());
+    }
+
+    @Bean
+    public SparkSession sparkSession(){
+        return new SparkSession(sc().sc());
     }
 }
 
