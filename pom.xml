@@ -13,7 +13,7 @@
     <properties>
        <!-- <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>-->
-        <sparkVersion>1.6.1</sparkVersion>
+        <spark.version>1.6.1</spark.version>
         <spring.version>4.3.8.RELEASE</spring.version>
     </properties>
 
@@ -35,6 +35,11 @@
             <version>${spring.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_2.10</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.16.12</version>
@@ -42,7 +47,7 @@
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-core_2.10</artifactId>
-            <version>${sparkVersion}</version>
+            <version>${spark.version}</version>
         </dependency>
     </dependencies>
 
